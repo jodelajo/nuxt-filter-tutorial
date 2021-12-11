@@ -2,10 +2,8 @@
   <div class="container">
     <div class="dropdown-wrapper">
       <div @click="isVisible = !isVisible" class="selected-item">
-        <span v-if="selectedItem">{{ selectedItem.name }}</span>
-        <span v-else>Select User</span>
+        <span>{{ selectedItem?.name  || "hoi"}}</span>
         <svg
-          :class="isVisible ? 'dropdown' : ''"
           class="dropdown-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -18,16 +16,12 @@
           />
         </svg>
       </div>
-      <div
-        :class="isVisible ? 'visible' : 'invisible'"
-        class="dropdown-popover"
-      >
+      <div v-if="isVisible" class="dropdown-popover">
         <input
           v-model="searchQuery"
           type="text"
           placeholder="Search for User"
         />
-        <span v-if="filteredUser.length === 0">No data available</span>
         <div class="options">
           <ul class="list">
             <li
@@ -124,15 +118,6 @@ body {
   font-weight: 700;
 }
 
-.dropdown-icon {
-  transform: rotate(0deg);
-  transition: all 0.5s ease;
-}
-.selected-item .dropdown-icon.dropdown {
-  transform: rotate(180deg);
-  transition: all 0.5s ease;
-}
-
 .dropdown-popover {
   position: absolute;
   border: 2px solid lightgray;
@@ -142,15 +127,6 @@ body {
   background-color: white;
   max-width: 100%;
   padding: 10px;
-  visibility: hidden;
-  transition: all 0.5s linear;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.dropdown-popover.visible {
-  visibility: visible;
-  max-height: 350px;
 }
 input {
   width: 90%;

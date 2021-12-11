@@ -18,10 +18,7 @@
           />
         </svg>
       </div>
-      <div
-        :class="isVisible ? 'visible' : 'invisible'"
-        class="dropdown-popover"
-      >
+      <div v-show="isVisible" class="dropdown-popover">
         <input
           v-model="searchQuery"
           type="text"
@@ -126,11 +123,11 @@ body {
 
 .dropdown-icon {
   transform: rotate(0deg);
-  transition: all 0.5s ease;
+transition: all .5s ease;
 }
 .selected-item .dropdown-icon.dropdown {
-  transform: rotate(180deg);
-  transition: all 0.5s ease;
+transform: rotate(180deg);
+transition: all .5s ease;
 }
 
 .dropdown-popover {
@@ -142,15 +139,6 @@ body {
   background-color: white;
   max-width: 100%;
   padding: 10px;
-  visibility: hidden;
-  transition: all 0.5s linear;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.dropdown-popover.visible {
-  visibility: visible;
-  max-height: 350px;
 }
 input {
   width: 90%;

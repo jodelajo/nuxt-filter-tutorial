@@ -161,7 +161,7 @@ input {
 }
 .options {
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 200px;
 }
 .list {
