@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div  class="dropdown-wrapper">
-      <div  @click="isVisible = !isVisible" class="selected-item">
+    <div class="dropdown-wrapper">
+      <div class="selected-item">
         <span>Select User</span>
         <svg
           class="dropdown-icon"
@@ -16,7 +16,7 @@
           />
         </svg>
       </div>
-      <div v-if="isVisible" class="dropdown-popover">
+      <div class="dropdown-popover">
         <input
           v-model="searchQuery"
           type="text"
@@ -42,22 +42,7 @@
 </template>
 
 <script>
-export default {
-data(){
-  return {
-    searchQuery: '',
-    selectedItem: null,
-    isVisible: false,
-  }
-},
-mounted() {
-  fetch("https://jsonplaceholder.typicode.com/users")
-  .then(res => res.json())
-  .then(json => {
-    console.log(json);
-  })
-}
-};
+export default {};
 </script>
 
 <style scoped>

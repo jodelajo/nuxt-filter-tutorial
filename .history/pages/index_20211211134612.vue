@@ -16,7 +16,7 @@
           />
         </svg>
       </div>
-      <div v-if="isVisible" class="dropdown-popover">
+      <div class="dropdown-popover">
         <input
           v-model="searchQuery"
           type="text"
@@ -49,14 +49,8 @@ data(){
     selectedItem: null,
     isVisible: false,
   }
-},
-mounted() {
-  fetch("https://jsonplaceholder.typicode.com/users")
-  .then(res => res.json())
-  .then(json => {
-    console.log(json);
-  })
 }
+
 };
 </script>
 
